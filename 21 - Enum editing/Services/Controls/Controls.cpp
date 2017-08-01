@@ -404,14 +404,14 @@ float Controls::GetAliasValue(int index, bool delta)
 	return 0.0f;
 }
 
-bool Controls::DebugKeyPressed(const char* name)
+bool Controls::DebugKeyPressed(const char* name, AliasAction action)
 {
 	if (debeugMap.find(name) == debeugMap.end())
 	{
 		return false;
 	}
 
-	return GetHardwareAliasState(debeugMap[name], false, Activated);
+	return GetHardwareAliasState(debeugMap[name], false, action);
 }
 
 void Controls::OverrideMousePos(int mx, int my)

@@ -148,6 +148,7 @@ int Editor::Run()
 
 void Editor::ClearScene()
 {
+	SelectObject(NULL);
 	sceneName.clear();
 	sceneList->ClearList();
 	scene.DeleteAllObjects();

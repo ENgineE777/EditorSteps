@@ -18,7 +18,7 @@ class Editor : public Object
 		MenuOpenID = 1001,
 		MenuSaveID = 1002,
 		MenuSaveAsID = 1003,
-		MenuExitID = 1003,
+		MenuExitID = 1004,
 
 		MenuDeleteID = 1100,
 
@@ -68,6 +68,7 @@ class Editor : public Object
 	EUICategories* objCat;
 	EUIPanel* viewport;
 
+	EUIWindow* mainWnd;
 	EUIWindow* gameWnd;
 
 	Scene scene;

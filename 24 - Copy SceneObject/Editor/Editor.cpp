@@ -270,6 +270,7 @@ int Editor::Run()
 
 void Editor::ClearScene()
 {
+	SelectObject(NULL);
 	sceneName.clear();
 	sceneList->ClearList();
 	scene.DeleteAllObjects();
@@ -495,8 +496,6 @@ void Editor::ProcessMenu(int activated_id)
 
 		if (fileName)
 		{
-			SelectObject(NULL);
-
 			ClearScene();
 			sceneName = fileName;
 			scene.Load(fileName);

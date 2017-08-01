@@ -132,10 +132,10 @@ void Editor::Init()
 {
 	EUI::Init("settings/EUI/theme.dat");
 
-	EUIWindow* wnd = new EUIWindow("Editor", false, true, 30, 30, 800, 600);
-	wnd->SetListener(&listener, 0);
+	mainWnd = new EUIWindow("Editor", false, true, 30, 30, 800, 600);
+	mainWnd->SetListener(&listener, 0);
 
-	EUIMenu* menu = new EUIMenu(wnd);
+	EUIMenu* menu = new EUIMenu(mainWnd);
 	menu->SetListener(&listener, 0);
 
 	menu->StartSubMenu("File");
@@ -173,7 +173,7 @@ void Editor::Init()
 
 	menu->AddItem(1301, "About");
 
-	EUILayout* lt = new EUILayout(wnd, false);
+	EUILayout* lt = new EUILayout(mainWnd, false);
 
 	EUIPanel* toolsPanel2 = new EUIPanel(lt, 10, 10, 100, 30);
 	lt->SetChildSize(toolsPanel2, 200, false);
@@ -246,8 +246,8 @@ void Editor::Init()
 
 	UpdateGizmoToolbar();
 
-	wnd->Show(true);
-	wnd->Maximaze();
+	mainWnd->Show(true);
+	mainWnd->Maximaze();
 }
 
 int Editor::Run()
@@ -259,6 +259,7 @@ int Editor::Run()
 
 void Editor::ClearScene()
 {
+	SelectObject(NULL);
 	sceneName.clear();
 	sceneList->ClearList();
 	scene.DeleteAllObjects();
@@ -486,6 +487,16 @@ void Editor::ProcessMenu(int activated_id)
 
 			id++;
 			decl = decl->Next();
+		}
+	}
+
+	if (activated_id == MenuExitID)
+	{
+		mainWnd->Close();
+
+		if (gameWnd)
+		{
+			gameWnd->Close();
 		}
 	}
 }
