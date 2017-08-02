@@ -15,6 +15,13 @@ public:
 
 	Vector2 angles;
 
+	int alias_forward;
+	int alias_strafe;
+	int alias_fast;
+	int alias_rotate_active;
+	int alias_rotate_x;
+	int alias_rotate_y;
+
 	CLASSDECLDIF(SceneObject, ScenePlayer)
 		ScenePlayer();
 	virtual ~ScenePlayer();

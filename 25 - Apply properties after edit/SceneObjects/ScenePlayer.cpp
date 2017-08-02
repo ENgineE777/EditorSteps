@@ -11,13 +11,6 @@ FLOAT_PROP(ScenePlayer, radius, 0.5f, "Geometry", "Radius")
 FLOAT_PROP(ScenePlayer, camDistance, 4.0f, "Geometry", "CamDistance")
 META_DATA_DESC_END()
 
-int alias_forward;
-int alias_strafe;
-int alias_fast;
-int alias_rotate_active;
-int alias_rotate_x;
-int alias_rotate_y;
-
 ScenePlayer::ScenePlayer() : SceneObject()
 {
 }
